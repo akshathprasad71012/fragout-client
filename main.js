@@ -135,11 +135,13 @@ function handleNewData(newData){
     }
   })
   if(!isFound){
-    let newenemy = {"playerName": newData.playerName, "playerId": newData.playerId, "r": newData.playerR, "c": newData.playerC, "show": false, "raycount": 0, "angle": 0, "health": newData.health, "kill1m" : newData.kill1m, "kill3m": newData.kill3m, "kill5m": newData.kill5m, "kill": newData.kill, "best": newData.best};
-    //console.log(newenemy);
-    enemyList = [...enemyList, newenemy];
     if (startTime === null) startTime = Date.now();
-
+    if(!newData.killme){
+      let newenemy = {"playerName": newData.playerName, "playerId": newData.playerId, "r": newData.playerR, "c": newData.playerC, "show": false, "raycount": 0, "angle": 0, "health": newData.health, "kill1m" : newData.kill1m, "kill3m": newData.kill3m, "kill5m": newData.kill5m, "kill": newData.kill, "best": newData.best};
+      //console.log(newenemy);
+      enemyList = [...enemyList, newenemy];
+      
+    }
   }
   if(newData.askIntro){
     emitData(false);
