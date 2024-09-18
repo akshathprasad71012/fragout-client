@@ -3,9 +3,9 @@ const fovIncrements = fov / 120;
 const refDistance = 10;
 const cursorSensitivityA = 0.05;
 const cursorSensitivityT = 3;
-const confire = new Audio('./soundtracks/conFire.mp3');
-const fire = new Audio("./soundtracks/fire.mp3");
-const hurt = new Audio("./soundtracks/hurt.mp3");
+const confire = new Audio('./conFire.mp3');
+const fire = new Audio("./fire.mp3");
+const hurt = new Audio("./hurt.mp3");
 const enemyRayError = 0.5;
 const runTimeout = 50;
 
