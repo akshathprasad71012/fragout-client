@@ -114,7 +114,11 @@ function handleNewData(newData){
       // console.log(newData);
       
       if(newData.killme){
-        enemyList.splice(enemyList.indexOf(enemy), 1);
+        const idx = enemyList.indexof(enemy);
+        if(idx > 0){
+          enemyList.splice(enemyList.indexOf(enemy), 1);
+        }
+        
         // console.log(enemyList);
         let e = document.getElementById(enemy.playerId);
         // console.log(enemy.playerId, e);
@@ -251,7 +255,7 @@ function handleHit(){
           }
         }
         // console.log(dist);
-        
+        enemyList.splice(enemyList.indexOf(enemy), 1);
         render();
         socket.send(JSON.stringify({...enemy, "sendTime" : Date.now()}));
         
