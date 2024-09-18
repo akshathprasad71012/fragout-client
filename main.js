@@ -232,6 +232,7 @@ function handleHit(){
         //let hitHeight = (playerT -feet+50) + (head - 50 - 0.5 - playerT);
         enemy.health -= Math.round((5 + 10**((enemyHeight - playerT)/enemyHeight)) / ((dist +15) / refDistance));
         if(enemy.health <= 0){
+          enemyList.splice(enemyList.indexOf(enemy), 1);
           kills++;
           if(kills > bestkills){
             localStorage.setItem("best", kills);
@@ -255,7 +256,7 @@ function handleHit(){
           }
         }
         // console.log(dist);
-        enemyList.splice(enemyList.indexOf(enemy), 1);
+        
         render();
         socket.send(JSON.stringify({...enemy, "sendTime" : Date.now()}));
         
@@ -307,11 +308,11 @@ function render() {
   document.getElementById("kill").innerText= `KILLS : ${kills}`;
   document.getElementById("best").innerText= `HIGHSCORE : ${bestkills}`;
   
-
+  document.getElementById("allemenycontainers").innerHTML = "";
   enemyList.forEach(enemy=>{
     // console.log("IODfsidoj", enemy)
-    let e = document.getElementById(enemy.playerId);
-    e && e.remove();
+    // let e = document.getElementById(enemy.playerId);
+    // e && e.remove();
 
     enemy.show = false;
     enemy.raycount=0; 
